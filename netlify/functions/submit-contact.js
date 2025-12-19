@@ -37,7 +37,7 @@ exports.handler = async (event) => {
       <p><strong>Phone:</strong> ${data.phone}</p>
       <p><strong>Tattoo Budget:</strong> ${data.tattoo_budget}</p>
       ${data.description ? `<p><strong>Description:</strong> ${data.description}</p>` : ''}
-      ${data.file_url ? `<p><strong>Uploaded Image:</strong> <a href="${data.file_url}">View Image</a></p>` : ''}
+      ${data.has_image && data.image_filename ? `<p><strong>Image File:</strong> ${data.image_filename} (customer has this file ready)</p>` : ''}
       <hr>
       <p><em>Submitted from The Scurvy Dog Tattoo website</em></p>
     `;

@@ -1,18 +1,89 @@
 // Contact Form Handler for The Scurvy Dog Tattoo
+// Handles form submission via Netlify Functions + Resend (NO GHL)
+
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('#_builder-form');
+  const form = document.querySelector('#contact-form');
+  const submitButton = document.querySelector('#submit-button');
+  const successMessage = document.querySelector('#form-success-message');
+  const fileInput = document.querySelector('#tattoo_image');
+  const fileNameDisplay = document.querySelector('#file-name-display');
 
   if (!form) {
-    console.log('Form not found');
+    console.log('Contact form not found');
     return;
   }
 
-  // Find or create submit button
-  const submitButton = form.querySelector('button[type="submit"]');
+  // Handle file input display
+  if (fileInput && fileNameDisplay) {
+    fileInput.addEventListener('change', function(e) {
+      const fileName = e.target.files[0]?.name;
+      if (fileName) {
+        fileNameDisplay.textContent = `Selected: ${fileName}`;
+      } else {
+        fileNameDisplay.textContent = '';
+      }
+    });
+  }
 
-  if (!submitButton) {
-    console.log('Submit button not found');
-    return;
+  // Clear error messages
+  function clearErrors() {
+    document.querySelectorAll('.form-error').forEach(error => {
+      error.classList.remove('active');
+    });
+  }
+
+  // Show error message
+  function showError(fieldId, message) {
+    const errorElement = document.querySelector(`#${fieldId}-error`);
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.classList.add('active');
+    }
+  }
+
+  // Validate form
+  function validateForm() {
+    clearErrors();
+    let isValid = true;
+
+    const firstName = document.getElementById('first_name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const budget = document.getElementById('tattoo_budget').value;
+    const termsAccepted = document.getElementById('terms_and_conditions').checked;
+
+    if (!firstName) {
+      showError('first_name', 'Please enter your first name');
+      isValid = false;
+    }
+
+    if (!email) {
+      showError('email', 'Please enter your email address');
+      isValid = false;
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showError('email', 'Please enter a valid email address');
+        isValid = false;
+      }
+    }
+
+    if (!phone) {
+      showError('phone', 'Please enter your phone number');
+      isValid = false;
+    }
+
+    if (!budget) {
+      showError('tattoo_budget', 'Please select a budget');
+      isValid = false;
+    }
+
+    if (!termsAccepted) {
+      showError('terms', 'Please accept the terms and conditions');
+      isValid = false;
+    }
+
+    return isValid;
   }
 
   // Handle form submission
@@ -20,7 +91,17 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     e.stopPropagation();
 
-    // Disable submit button to prevent double submission
+    // Hide success message if visible
+    if (successMessage) {
+      successMessage.classList.remove('active');
+    }
+
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
+
+    // Disable submit button
     submitButton.disabled = true;
     const originalButtonText = submitButton.textContent;
     submitButton.textContent = 'Submitting...';
@@ -28,31 +109,17 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       // Collect form data
       const formData = {
-        first_name: document.getElementById('first_name')?.value || '',
-        last_name: document.getElementById('last_name')?.value || '',
-        email: document.getElementById('email')?.value || '',
-        phone: document.getElementById('phone')?.value || '',
-        tattoo_budget: document.querySelector('[name="wTbNy6MQxfAQ5qt7J3fu"]')?.value || '',
-        description: document.getElementById('r46aoHYnW03OsOXzBiVy')?.value || '',
-        terms_accepted: document.getElementById('terms_and_conditions_1_xh7g6dhs55s')?.checked || false
+        first_name: document.getElementById('first_name').value.trim(),
+        last_name: document.getElementById('last_name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        tattoo_budget: document.getElementById('tattoo_budget').value,
+        description: document.getElementById('description').value.trim(),
+        has_image: fileInput?.files?.length > 0,
+        image_filename: fileInput?.files[0]?.name || null
       };
 
-      // Basic validation
-      if (!formData.first_name || !formData.email || !formData.phone || !formData.tattoo_budget) {
-        throw new Error('Please fill in all required fields');
-      }
-
-      if (!formData.terms_accepted) {
-        throw new Error('Please accept the terms and conditions');
-      }
-
-      // Validate email format
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        throw new Error('Please enter a valid email address');
-      }
-
-      // Submit to Netlify Function
+      // Submit to Netlify Function (Resend email)
       const response = await fetch('/.netlify/functions/submit-contact', {
         method: 'POST',
         headers: {
@@ -68,14 +135,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       // Success! Show success message
-      alert('Thank you! Your request has been submitted successfully. We will contact you soon!');
+      if (successMessage) {
+        successMessage.classList.add('active');
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
 
       // Reset the form
       form.reset();
+      if (fileNameDisplay) {
+        fileNameDisplay.textContent = '';
+      }
 
     } catch (error) {
       console.error('Form submission error:', error);
-      alert(error.message || 'An error occurred while submitting the form. Please try again.');
+      alert('An error occurred: ' + (error.message || 'Please try again or call us at (720) 398-8051'));
     } finally {
       // Re-enable submit button
       submitButton.disabled = false;
