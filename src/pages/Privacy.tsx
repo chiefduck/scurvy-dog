@@ -3,153 +3,178 @@ export default function Privacy() {
     <div className="py-20">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="mb-8 text-accent-teal text-glow">Privacy Policy</h1>
+          <h1 className="mb-8 text-accent-teal text-glow text-center">Privacy Policy</h1>
 
-          <div className="prose prose-invert max-w-none space-y-8">
-            <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8">
+          <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8 md:p-12 space-y-8">
+            <section>
+              <p className="text-secondary-bone/80 leading-relaxed">
+                At Scurvy Dog Tattoo, accessible from https://www.scurvydogtattoo.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Scurvy Dog Tattoo and how we use it.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">Consent</h2>
+              <p className="text-secondary-bone/80 leading-relaxed">
+                By using our website, you hereby consent to our Privacy Policy and agree to its terms.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">Information We Collect</h2>
               <p className="text-secondary-bone/80 leading-relaxed mb-4">
-                <strong className="text-secondary-bone">Last Updated:</strong> December 2024
+                The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
+              </p>
+              <p className="text-secondary-bone/80 leading-relaxed mb-4">
+                If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.
               </p>
               <p className="text-secondary-bone/80 leading-relaxed">
-                At Scurvy Dog Tattoo, we respect your privacy and are committed to protecting your
-                personal information. This Privacy Policy explains how we collect, use, and
-                safeguard your data.
+                When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.
               </p>
-            </div>
-
-            <section>
-              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">
-                Information We Collect
-              </h2>
-              <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8 space-y-4">
-                <p className="text-secondary-bone/80 leading-relaxed">
-                  We collect information that you provide directly to us, including:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-secondary-bone/80">
-                  <li>Name and contact information (email, phone number)</li>
-                  <li>Tattoo consultation and booking details</li>
-                  <li>Payment information for services and merchandise</li>
-                  <li>Communication preferences</li>
-                  <li>
-                    Health information relevant to tattoo services (allergies, medical conditions)
-                  </li>
-                </ul>
-              </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">
-                How We Use Your Information
-              </h2>
-              <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8 space-y-4">
-                <p className="text-secondary-bone/80 leading-relaxed">
-                  We use the information we collect to:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-secondary-bone/80">
-                  <li>Schedule and manage tattoo appointments</li>
-                  <li>Communicate with you about our services</li>
-                  <li>Process payments and transactions</li>
-                  <li>Send appointment reminders and aftercare instructions</li>
-                  <li>Improve our services and customer experience</li>
-                  <li>Comply with legal and regulatory requirements</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">How We Use Your Information</h2>
+              <p className="text-secondary-bone/80 leading-relaxed mb-3">
+                We use the information we collect in various ways, including to:
+              </p>
+              <ul className="space-y-2 text-secondary-bone/80">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Provide, operate, and maintain our website</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Improve, personalize, and expand our website</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Understand and analyze how you use our website</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Develop new products, services, features, and functionality</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Send you emails</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Find and prevent fraud</span>
+                </li>
+              </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">
-                Information Sharing
-              </h2>
-              <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8">
-                <p className="text-secondary-bone/80 leading-relaxed">
-                  We do not sell, rent, or share your personal information with third parties
-                  except:
-                </p>
-                <ul className="list-disc list-inside space-y-2 text-secondary-bone/80 mt-4">
-                  <li>With your explicit consent</li>
-                  <li>To comply with legal obligations</li>
-                  <li>To protect our rights and safety</li>
-                  <li>With service providers who assist in our operations</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">Log Files</h2>
+              <p className="text-secondary-bone/80 leading-relaxed">
+                Scurvy Dog Tattoo follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">
-                Data Security
-              </h2>
-              <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8">
-                <p className="text-secondary-bone/80 leading-relaxed">
-                  We implement appropriate technical and organizational measures to protect your
-                  personal information against unauthorized access, alteration, disclosure, or
-                  destruction. However, no method of transmission over the internet is 100% secure.
-                </p>
-              </div>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">Cookies and Web Beacons</h2>
+              <p className="text-secondary-bone/80 leading-relaxed">
+                Like any other website, Scurvy Dog Tattoo uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">
-                Your Rights
-              </h2>
-              <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8">
-                <p className="text-secondary-bone/80 leading-relaxed mb-4">You have the right to:</p>
-                <ul className="list-disc list-inside space-y-2 text-secondary-bone/80">
-                  <li>Access your personal information</li>
-                  <li>Request correction of inaccurate data</li>
-                  <li>Request deletion of your data</li>
-                  <li>Opt-out of marketing communications</li>
-                  <li>Object to processing of your data</li>
-                </ul>
-              </div>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">Third-Party Privacy Policies</h2>
+              <p className="text-secondary-bone/80 leading-relaxed mb-4">
+                Scurvy Dog Tattoo's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
+              </p>
+              <p className="text-secondary-bone/80 leading-relaxed">
+                You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">
-                Cookies and Tracking
-              </h2>
-              <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8">
-                <p className="text-secondary-bone/80 leading-relaxed">
-                  We may use cookies and similar tracking technologies to improve your browsing
-                  experience and analyze site usage. You can control cookie preferences through your
-                  browser settings.
-                </p>
-              </div>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+              <p className="text-secondary-bone/80 leading-relaxed mb-3">
+                Under the CCPA, among other rights, California consumers have the right to:
+              </p>
+              <ul className="space-y-2 text-secondary-bone/80">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Request that a business delete any personal data about the consumer that a business has collected.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</span>
+                </li>
+              </ul>
+              <p className="text-secondary-bone/80 leading-relaxed mt-4">
+                If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">
-                Changes to This Policy
-              </h2>
-              <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8">
-                <p className="text-secondary-bone/80 leading-relaxed">
-                  We may update this Privacy Policy from time to time. We will notify you of any
-                  changes by posting the new policy on this page and updating the "Last Updated"
-                  date.
-                </p>
-              </div>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">GDPR Data Protection Rights</h2>
+              <p className="text-secondary-bone/80 leading-relaxed mb-3">
+                We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
+              </p>
+              <ul className="space-y-2 text-secondary-bone/80">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>The right to access – You have the right to request copies of your personal data.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>The right to rectification – You have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent-teal mt-1">•</span>
+                  <span>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</span>
+                </li>
+              </ul>
+              <p className="text-secondary-bone/80 leading-relaxed mt-4">
+                If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">Children's Information</h2>
+              <p className="text-secondary-bone/80 leading-relaxed mb-4">
+                Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
+              </p>
+              <p className="text-secondary-bone/80 leading-relaxed">
+                Scurvy Dog Tattoo does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">Changes to This Privacy Policy</h2>
+              <p className="text-secondary-bone/80 leading-relaxed">
+                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
+              </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-display font-bold text-accent-teal mb-4">Contact Us</h2>
-              <div className="bg-primary-charcoal rounded-lg border border-accent-teal/20 p-8">
-                <p className="text-secondary-bone/80 leading-relaxed">
-                  If you have questions about this Privacy Policy or how we handle your information,
-                  please contact us:
-                </p>
-                <div className="mt-4 space-y-2 text-secondary-bone/80">
-                  <p>
-                    <strong className="text-secondary-bone">Email:</strong>{' '}
-                    privacy@scurvydog.tattoo
-                  </p>
-                  <p>
-                    <strong className="text-secondary-bone">Phone:</strong> (555) 123-4567
-                  </p>
-                  <p>
-                    <strong className="text-secondary-bone">Address:</strong> 123 Anchor Street,
-                    Port City, PC 12345
-                  </p>
-                </div>
-              </div>
+              <p className="text-secondary-bone/80 leading-relaxed">
+                If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at info@scurvydog.tattoo or call us at (720) 398-8051.
+              </p>
             </section>
           </div>
         </div>

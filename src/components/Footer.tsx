@@ -1,8 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Instagram, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (id: string) => {
+    if (location.pathname === '/') {
+      // Already on home page, just scroll
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // On different page, navigate to home first with scroll target
+      navigate('/', { state: { scrollTo: id } });
+    }
+  };
 
   return (
     <footer className="bg-primary-charcoal border-t border-accent-teal/20">
@@ -23,36 +38,28 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link
-                  to="/artists"
+                <button
+                  onClick={() => scrollToSection('artists')}
                   className="text-secondary-bone/70 hover:text-accent-teal text-sm transition-colors"
                 >
                   Meet Our Artists
-                </Link>
+                </button>
               </li>
               <li>
-                <Link
-                  to="/aftercare"
+                <button
+                  onClick={() => scrollToSection('aftercare')}
                   className="text-secondary-bone/70 hover:text-accent-teal text-sm transition-colors"
                 >
                   Aftercare Guide
-                </Link>
+                </button>
               </li>
               <li>
-                <Link
-                  to="/merch"
-                  className="text-secondary-bone/70 hover:text-accent-teal text-sm transition-colors"
-                >
-                  Shop Merch
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
+                <button
+                  onClick={() => scrollToSection('contact')}
                   className="text-secondary-bone/70 hover:text-accent-teal text-sm transition-colors"
                 >
                   Book Appointment
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -64,11 +71,13 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-secondary-bone/70 text-sm">
                 <MapPin className="w-4 h-4 text-accent-teal mt-0.5 flex-shrink-0" />
-                <span>123 Anchor Street, Port City, PC 12345</span>
+                <span>10055 S Parker Rd #4, Parker, CO 80134</span>
               </li>
               <li className="flex items-center gap-2 text-secondary-bone/70 text-sm">
                 <Phone className="w-4 h-4 text-accent-teal flex-shrink-0" />
-                <span>(555) 123-4567</span>
+                <a href="tel:+17203988051" className="hover:text-accent-teal transition-colors">
+                  (720) 398-8051
+                </a>
               </li>
               <li className="flex items-center gap-2 text-secondary-bone/70 text-sm">
                 <Mail className="w-4 h-4 text-accent-teal flex-shrink-0" />
@@ -83,14 +92,18 @@ export default function Footer() {
             </h4>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/thescurvydogtattoo"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-accent-teal/10 border border-accent-teal/30 flex items-center justify-center text-accent-teal hover:bg-accent-teal hover:text-primary-black transition-all duration-300"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/thescurvydogtattooproject"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-accent-teal/10 border border-accent-teal/30 flex items-center justify-center text-accent-teal hover:bg-accent-teal hover:text-primary-black transition-all duration-300"
                 aria-label="Facebook"
               >
@@ -115,7 +128,7 @@ export default function Footer() {
               to="/terms"
               className="text-secondary-bone/60 hover:text-accent-teal text-sm transition-colors"
             >
-              Terms of Service
+              Terms & Conditions
             </Link>
           </div>
         </div>
