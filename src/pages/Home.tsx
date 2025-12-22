@@ -152,7 +152,7 @@ export default function Home() {
               <img
                 src="/logo10.png"
                 alt="Scurvy Dog"
-                className="w-32 h-32 md:w-48 md:h-48 mx-auto drop-shadow-[0_0_30px_rgba(20,184,166,0.4)]"
+                className="w-32 md:w-48 h-auto mx-auto drop-shadow-[0_0_30px_rgba(20,184,166,0.4)]"
               />
             </div>
             <h1 className="mb-6 text-secondary-bone">
@@ -577,9 +577,9 @@ export default function Home() {
               <div>
                 <h3 className="text-lg font-display font-bold text-secondary-bone mb-2">Hours</h3>
                 <p className="text-secondary-bone/70 text-sm">
-                  Tue-Sat: 12pm - 8pm
+                  Sat-Wed: 12pm - 7pm
                   <br />
-                  Sun-Mon: Closed
+                  Thu-Fri: 12pm - 6pm
                 </p>
               </div>
             </div>
