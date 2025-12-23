@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Instagram, Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { Instagram, Facebook, MapPin, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -78,10 +78,6 @@ export default function Footer() {
                 <a href="tel:+17203988051" className="hover:text-accent-teal transition-colors">
                   (720) 398-8051
                 </a>
-              </li>
-              <li className="flex items-center gap-2 text-secondary-bone/70 text-sm">
-                <Mail className="w-4 h-4 text-accent-teal flex-shrink-0" />
-                <span>info@scurvydog.tattoo</span>
               </li>
             </ul>
           </div>
