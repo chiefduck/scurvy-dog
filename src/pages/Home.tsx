@@ -678,13 +678,16 @@ export default function Home() {
                     id="phone"
                     name="phone"
                     required
+                    // Add these three lines for better validation 👇
+                    pattern="[0-9]{10}" 
+                    maxLength={10}
+                    title="Please enter a 10-digit phone number without spaces or dashes (e.g. 7205550123)"
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
-                    placeholder="(720) 555-0123"
+                    placeholder="7205550123"
                   />
                 </div>
-
                 <div>
                   <label
                     htmlFor="artist"
