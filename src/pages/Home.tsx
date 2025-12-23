@@ -22,28 +22,28 @@ export default function Home() {
   const artists = [
     {
       id: 'morbid-mark',
-      name: 'Morbid Mark',
+      name: 'Mark',
       instagram: 'https://www.instagram.com/morbidmarkd',
       handle: '@morbidmarkd',
       videoId: '_lOBOH5fWxY',
     },
     {
       id: 'izzy-dalton',
-      name: 'Izzy Dalton',
+      name: 'Izzy',
       instagram: 'https://www.instagram.com/izzydaltontattoos',
       handle: '@izzydaltontattoos',
       videoId: 'kL-iI9LVhx4',
     },
     {
       id: 'elora-hinton',
-      name: 'Elora Hinton',
+      name: 'Elora',
       instagram: 'https://www.instagram.com/x_gutter_glitter_x',
       handle: '@x_gutter_glitter_x',
       videoId: 'o6SHrXvKQVs',
     },
     {
       id: 'james-hinton',
-      name: 'James Hinton',
+      name: 'James',
       instagram: 'https://www.instagram.com/lowxlife_tattooer/',
       handle: '@lowxlife_tattooer',
       videoId: '1nrphDuazwo',
@@ -700,10 +700,11 @@ export default function Home() {
                     className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
                   >
                     <option value="">No Preference</option>
-                    {artists.map((artist) => (
-                      <option key={artist.id} value={artist.id}>
-                        {artist.name}
-                      </option>
+                      {artists.map((artist) => (
+                        // Update the line below 👇
+                        <option key={artist.id} value={artist.name}>
+                          {artist.name}
+                        </option>
                     ))}
                   </select>
                 </div>
