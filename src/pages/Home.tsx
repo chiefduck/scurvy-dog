@@ -74,7 +74,7 @@ export default function Home() {
     setErrorMessage('');
 
     try {
-      const response = await fetch('https://automations.level16media.com/webhook-test/scurvy-dog', {
+      const response = await fetch('https://automations.level16media.com/webhook/form/scurvy-dog/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
