@@ -107,10 +107,29 @@ export default function Home() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+  
+    if (name === 'phone') {
+      // 1. Remove all non-digits
+      const cleaned = value.replace(/\D/g, '');
+      
+      // 2. Limit to 10 digits
+      const limited = cleaned.substring(0, 10);
+      
+      // 3. Apply formatting as they type
+      let formatted = limited;
+      if (limited.length > 6) {
+        formatted = `(${limited.substring(0, 3)}) ${limited.substring(3, 6)}-${limited.substring(6)}`;
+      } else if (limited.length > 3) {
+        formatted = `(${limited.substring(0, 3)}) ${limited.substring(3)}`;
+      } else if (limited.length > 0) {
+        formatted = `(${limited}`;
+      }
+      
+      setFormData({ ...formData, [name]: formatted });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const scrollToSection = (id: string) => {
@@ -667,27 +686,22 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-secondary-bone mb-2"
-                  >
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    // Add these three lines for better validation 👇
-                    pattern="[0-9]{10}" 
-                    maxLength={10}
-                    title="Please enter a 10-digit phone number without spaces or dashes (e.g. 7205550123)"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
-                    placeholder="7205550123"
-                  />
-                </div>
+  <label htmlFor="phone" className="block text-sm font-medium text-secondary-bone mb-2">
+    Phone Number *
+  </label>
+  <input
+    type="tel"
+    id="phone"
+    name="phone"
+    required
+    // Use a pattern that expects the formatted version
+    pattern="\(\d{3}\) \d{3}-\d{4}"
+    value={formData.phone}
+    onChange={handleChange}
+    className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+    placeholder="(720) 555-0123"
+  />
+</div>
                 <div>
                   <label
                     htmlFor="artist"
