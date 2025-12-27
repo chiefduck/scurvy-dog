@@ -9,6 +9,9 @@ export default function Contact() {
     email: '',
     phone: '',
     artist: searchParams.get('artist') || '',
+    placement: '',
+    approximateSize: '',
+    budget: '',
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -55,6 +58,9 @@ export default function Contact() {
         email: '',
         phone: '',
         artist: '',
+        placement: '',
+        approximateSize: '',
+        budget: '',
         message: '',
       });
     } catch (error) {
@@ -244,6 +250,73 @@ export default function Contact() {
                         {artist.label}
                       </option>
                     ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="placement"
+                    className="block text-sm font-medium text-secondary-bone mb-2"
+                  >
+                    Placement
+                  </label>
+                  <input
+                    type="text"
+                    id="placement"
+                    name="placement"
+                    value={formData.placement}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                    placeholder="Forearm, Back, Arm, Chest"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="approximateSize"
+                    className="block text-sm font-medium text-secondary-bone mb-2"
+                  >
+                    Approximate Size
+                  </label>
+                  <select
+                    id="approximateSize"
+                    name="approximateSize"
+                    value={formData.approximateSize}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                  >
+                    <option value="">Select a size</option>
+                    <option value='under-3"'>Under 3"</option>
+                    <option value='3"-5"'>3" - 5"</option>
+                    <option value='5"-10"'>5" - 10"</option>
+                    <option value='10"+'>10"+</option>
+                    <option value="full-sleeve">Full Sleeve</option>
+                    <option value="half-sleeve">Half Sleeve</option>
+                    <option value="other">Other (Large Project)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="budget"
+                    className="block text-sm font-medium text-secondary-bone mb-2"
+                  >
+                    Budget
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                  >
+                    <option value="">Select your budget</option>
+                    <option value="under-200">Under $200</option>
+                    <option value="200-400">$200 - $400</option>
+                    <option value="400-600">$400 - $600</option>
+                    <option value="600-1000">$600 - $1,000</option>
+                    <option value="1000-2000">$1,000 - $2,000</option>
+                    <option value="over-2000">Over $2,000</option>
                   </select>
                 </div>
 

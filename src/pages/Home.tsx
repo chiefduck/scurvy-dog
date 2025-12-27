@@ -12,6 +12,9 @@ export default function Home() {
     email: '',
     phone: '',
     artist: '',
+    placement: '',
+    approximateSize: '',
+    budget: '',
     message: '',
     company: '',
     tcpaConsent: false,
@@ -92,6 +95,9 @@ export default function Home() {
         email: '',
         phone: '',
         artist: '',
+        placement: '',
+        approximateSize: '',
+        budget: '',
         message: '',
         company: '',
         tcpaConsent: false,
@@ -596,9 +602,11 @@ export default function Home() {
               <div>
                 <h3 className="text-lg font-display font-bold text-secondary-bone mb-2">Hours</h3>
                 <p className="text-secondary-bone/70 text-sm">
-                  Sat-Wed: 12pm - 7pm
+                  Wed-Sat: 12pm - 7pm
                   <br />
-                  Thu-Fri: 12pm - 6pm
+                  Sun-Mon: 12pm - 6pm
+                  <br />
+                  Tuesday: Closed
                 </p>
               </div>
             </div>
@@ -647,82 +655,154 @@ export default function Home() {
                   style={{ display: 'none' }}
                 />
 
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-secondary-bone mb-2"
-                  >
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
-                    placeholder="John Doe"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-secondary-bone mb-2"
+                    >
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-secondary-bone mb-2"
+                    >
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-secondary-bone mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      pattern="\(\d{3}\) \d{3}-\d{4}"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                      placeholder="(720) 555-0123"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="artist"
+                      className="block text-sm font-medium text-secondary-bone mb-2"
+                    >
+                      Preferred Artist
+                    </label>
+                    <select
+                      id="artist"
+                      name="artist"
+                      value={formData.artist}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                    >
+                      <option value="">No Preference</option>
+                        {artists.map((artist) => (
+                          <option key={artist.id} value={artist.name}>
+                            {artist.name}
+                          </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="placement"
+                      className="block text-sm font-medium text-secondary-bone mb-2"
+                    >
+                      Placement
+                    </label>
+                    <input
+                      type="text"
+                      id="placement"
+                      name="placement"
+                      value={formData.placement}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                      placeholder="Forearm, Back, Arm, Chest"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="approximateSize"
+                      className="block text-sm font-medium text-secondary-bone mb-2"
+                    >
+                      Approximate Size
+                    </label>
+                    <select
+                      id="approximateSize"
+                      name="approximateSize"
+                      value={formData.approximateSize}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
+                    >
+                      <option value="">Select a size</option>
+                      <option value='under-3"'>Under 3"</option>
+                      <option value='3"-5"'>3" - 5"</option>
+                      <option value='5"-10"'>5" - 10"</option>
+                      <option value='10"+'>10"+</option>
+                      <option value="full-sleeve">Full Sleeve</option>
+                      <option value="half-sleeve">Half Sleeve</option>
+                      <option value="other">Other (Large Project)</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="budget"
                     className="block text-sm font-medium text-secondary-bone mb-2"
                   >
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
-                    placeholder="john@example.com"
-                  />
-                </div>
-
-                <div>
-  <label htmlFor="phone" className="block text-sm font-medium text-secondary-bone mb-2">
-    Phone Number *
-  </label>
-  <input
-    type="tel"
-    id="phone"
-    name="phone"
-    required
-    // Use a pattern that expects the formatted version
-    pattern="\(\d{3}\) \d{3}-\d{4}"
-    value={formData.phone}
-    onChange={handleChange}
-    className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
-    placeholder="(720) 555-0123"
-  />
-</div>
-                <div>
-                  <label
-                    htmlFor="artist"
-                    className="block text-sm font-medium text-secondary-bone mb-2"
-                  >
-                    Preferred Artist
+                    Budget
                   </label>
                   <select
-                    id="artist"
-                    name="artist"
-                    value={formData.artist}
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-primary-dark border border-accent-teal/30 rounded-lg text-secondary-bone focus:outline-none focus:border-accent-teal transition-colors"
                   >
-                    <option value="">No Preference</option>
-                      {artists.map((artist) => (
-                        // Update the line below 👇
-                        <option key={artist.id} value={artist.name}>
-                          {artist.name}
-                        </option>
-                    ))}
+                    <option value="">Select your budget</option>
+                    <option value="under-200">Under $200</option>
+                    <option value="200-400">$200 - $400</option>
+                    <option value="400-600">$400 - $600</option>
+                    <option value="600-1000">$600 - $1,000</option>
+                    <option value="1000-2000">$1,000 - $2,000</option>
+                    <option value="over-2000">Over $2,000</option>
                   </select>
                 </div>
 
